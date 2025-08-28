@@ -1,0 +1,3 @@
+Model,Seasonality (m),Data,MAE,RMSE,MAPE
+"SARIMA(2,0,2)(0,1,1)[7]",7,Clean,18570.96,21872.42,14.24
+"SARIMA(4,1,0)(2,1,1)[30]",30,Clean,16521.6,19369.16,14.0
