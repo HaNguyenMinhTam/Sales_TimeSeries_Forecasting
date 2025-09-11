@@ -52,6 +52,11 @@ The dataset contains both raw and engineered features:
 - **Pandas, Numpy**: Data wrangling  
 - **Matplotlib, Seaborn**: Visualization  
 - **Jupyter Notebook**: Interactive analysis  
+- **Scikit-learn**: preprocessing, model evaluation
+- **Statsmodels**: SARIMA
+- **Keras/Tensorflow**: LSTM
+- **Plotly**: (interactive chart)
+
 
 ---
 
@@ -78,18 +83,29 @@ pip install -r requirements.txt
 jupyter notebook
 
 # Results
-- Forecasting models (SARIMA) have been implemented and evaluated.
-- Exported plots & comparison metrics are stored in the results/ folder.
+- Time series forecasting models have been implemented and evaluated, including:
+  - **SARIMA(7)** and **SARIMA(30)**: capture trend and seasonality reasonably well but limited in modeling nonlinear patterns.
+  - **LSTM (look_back=7)**: tends to predict around short-term averages, struggling with seasonal fluctuations.
+  - **LSTM (look_back=30)**: shows better ability to follow long-term patterns compared to look_back=7, but still produces smoothed forecasts.
+
+- Comparative analysis shows that:
+  - **SARIMA** performs better at modeling seasonality and linear trends.
+  - **LSTM** provides flexibility for nonlinear relationships but requires longer look_back windows and additional time-based features.
+  - Both models have limitations when used independently, motivating exploration of hybrid approaches.
+
+- Exported plots and comparison metrics are stored in the `results/` folder for further reference.
 
 # Bussiness insight
 - ABC Retail can increase staffing and marketing promotions during 10 AM – 1 PM to capture peak sales.
 - Targeted campaigns in San Francisco & Los Angeles can maximize ROI since these cities dominate revenue.
 - Holiday seasons, especially December, should be prioritized with inventory planning and bundled offers.
+- More accurate forecasting models will allow ABC Retail to plan inventory and marketing campaigns with higher confidence.
 
 
 # Next Steps 
-- Enhance time series forecasting (XGBoost, LSTM).
-- Develop a dashboard (Streamlit/Power BI) for interactive reporting.
+“Explore hybrid models combining SARIMA and LSTM to leverage both linear and nonlinear patterns.”
+
+“Optimize look_back parameters (e.g., 60–90 days) and add time-based features (month, day of week, holidays).”
 
 # Author
 HaNguyenMinhTam - Data Analyst Enthusiast
