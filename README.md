@@ -87,11 +87,19 @@ jupyter notebook
   - **SARIMA(7)** and **SARIMA(30)**: capture trend and seasonality reasonably well but limited in modeling nonlinear patterns.
   - **LSTM (look_back=7)**: tends to predict around short-term averages, struggling with seasonal fluctuations.
   - **LSTM (look_back=30)**: shows better ability to follow long-term patterns compared to look_back=7, but still produces smoothed forecasts.
+  - **Hybrid SARIMA + LSTM (Residual Learning)**: designed to combine SARIMA’s strength in linear trend/seasonality and LSTM’s ability to model nonlinear effects.  
 
-- Comparative analysis shows that:
-  - **SARIMA** performs better at modeling seasonality and linear trends.
-  - **LSTM** provides flexibility for nonlinear relationships but requires longer look_back windows and additional time-based features.
-  - Both models have limitations when used independently, motivating exploration of hybrid approaches.
+- Comparative analysis (test set metrics):
+  | Model                  | MAE       | RMSE      | MAPE   |
+  |-------------------------|-----------|-----------|--------|
+  | SARIMA                  | 16,521.6  | 19,369.2  | 14.0 % |
+  | LSTM (autoregressive)   | 16,068.6  | 19,621.7  | 12.2 % |
+  | Hybrid (SARIMA + LSTM)  | 16,624.8  | 19,408.0  | 13.9 % |
+
+- Findings:
+  - **SARIMA**: strong for capturing seasonality and trend.  
+  - **LSTM**: outperforms SARIMA on MAPE, better at nonlinear patterns with longer look_back.  
+  - **Hybrid SARIMA+LSTM**: did not outperform standalone models, since SARIMA residuals resembled white noise (no meaningful signal left for LSTM to learn).  
 
 - Exported plots and comparison metrics are stored in the `results/` folder for further reference.
 
@@ -103,8 +111,11 @@ jupyter notebook
 
 
 # Next Steps 
-“Explore hybrid models combining SARIMA and LSTM to leverage both linear and nonlinear patterns.”
-
+# Next Steps
+- **Focus on LSTM autoregressive**, as it achieved the best forecasting accuracy in this dataset.  
+- Explore **ensemble averaging** between SARIMA and LSTM forecasts to reduce variance.  
+- Optimize **look_back parameters (60–90 days)** and add **time-based features** (month, day of week, holidays).  
+- Consider testing additional models (e.g., Prophet, XGBoost) for robustness.  
 “Optimize look_back parameters (e.g., 60–90 days) and add time-based features (month, day of week, holidays).”
 
 # Author
