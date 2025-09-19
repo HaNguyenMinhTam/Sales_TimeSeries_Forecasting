@@ -109,8 +109,11 @@ jupyter notebook
 - Holiday seasons, especially December, should be prioritized with inventory planning and bundled offers.
 - More accurate forecasting models will allow ABC Retail to plan inventory and marketing campaigns with higher confidence.
 
+# 💼 Business Value
+Developed a sales forecasting system for retail, enabling **30-day ahead demand prediction** with ~14% MAPE.  
+This system can help reduce stockouts and overstocking, allowing ABC Retail to save inventory costs, improve campaign planning, and optimize staffing levels.
 
-# Next Steps 
+
 # Next Steps
 - **Focus on LSTM autoregressive**, as it achieved the best forecasting accuracy in this dataset.  
 - Explore **ensemble averaging** between SARIMA and LSTM forecasts to reduce variance.  
