@@ -119,7 +119,7 @@ This system can help reduce stockouts and overstocking, allowing ABC Retail to s
 - Explore **ensemble averaging** between SARIMA and LSTM forecasts to reduce variance.  
 - Optimize **look_back parameters (60–90 days)** and add **time-based features** (month, day of week, holidays).  
 - Consider testing additional models (e.g., Prophet, XGBoost) for robustness.  
-“Optimize look_back parameters (e.g., 60–90 days) and add time-based features (month, day of week, holidays).”
+
 
 # Author
 HaNguyenMinhTam - Data Analyst Enthusiast
